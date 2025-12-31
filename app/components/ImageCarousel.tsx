@@ -25,10 +25,12 @@ export function ImageCarousel() {
         const isSwipeLeft = distance > minSwipeDistance;
         const isSwipeRight = distance < -minSwipeDistance;
 
-        if (isSwipeLeft && currentIndex < images.length - 1) {
-            setCurrentIndex(currentIndex + 1);
-        } else if (isSwipeRight && currentIndex > 0) {
-            setCurrentIndex(currentIndex - 1);
+        if (isSwipeLeft) {
+            // Swipe left: go to next image, loop to first if at end
+            setCurrentIndex((currentIndex + 1) % images.length);
+        } else if (isSwipeRight) {
+            // Swipe right: go to previous image, loop to last if at start
+            setCurrentIndex((currentIndex - 1 + images.length) % images.length);
         }
 
         // Reset values
