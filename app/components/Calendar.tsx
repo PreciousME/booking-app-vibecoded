@@ -217,11 +217,11 @@ export function Calendar({ selectedDate, onSelectDate }: CalendarProps) {
             {showBottomSheet && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none">
                     <div
-                        className="relative w-full max-w-[430px] h-full flex items-end pointer-events-auto overflow-hidden rounded-[30px]"
+                        className="relative w-full max-w-[430px] h-full flex items-end pointer-events-auto overflow-hidden md:rounded-[30px]"
                         onClick={handleCloseSheet}
                     >
                         {/* Background overlay - only within app frame */}
-                        <div className={`absolute inset-0 bg-black/40 rounded-[36px] ${isClosing ? 'animate-fade-out' : 'animate-fade-in'}`} />
+                        <div className={`absolute inset-0 bg-black/40 md:rounded-[36px] md:mt-6 ${isClosing ? 'animate-fade-out' : 'animate-fade-in'}`} />
 
                         {/* Bottom Sheet */}
                         <div
