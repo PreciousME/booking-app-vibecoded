@@ -43,7 +43,7 @@ export function ConfirmationPage() {
                     </svg>
                 </div>
 
-                <h1 className="text-2xl font-bold mb-8">Booking confirmeddjjdjhjhjd!</h1>
+                <h1 className="text-2xl font-bold mb-8">Booking confirmed</h1>
             </div>
 
             {/* Booking Details Card */}
