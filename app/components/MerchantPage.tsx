@@ -133,16 +133,23 @@ export function MerchantPage() {
                 <div className="px-5 py-6 border-t border-gray-100">
                     <h3 className="text font-bold mb-4">Opening hours</h3>
                     <div className="space-y-3">
-                        {merchant.openingHours.map((item, index) => (
-                            <div key={item.day} className="flex justify-between text-[15px]">
-                                <span className={index === 0 ? 'font-semibold text-gray-900' : 'text-gray-500'}>
-                                    {item.day}
-                                </span>
-                                <span className={`${item.hours === 'Closed' ? 'text-gray-400' : ''} ${index === 0 ? 'font-semibold text-gray-900' : 'text-gray-500'}`}>
-                                    {item.hours}
-                                </span>
-                            </div>
-                        ))}
+                        {(() => {
+                            const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+                            const currentDay = dayNames[new Date().getDay()];
+                            return merchant.openingHours.map((item) => {
+                                const isToday = item.day === currentDay;
+                                return (
+                                    <div key={item.day} className="flex justify-between text-[15px]">
+                                        <span className={isToday ? 'font-semibold text-gray-900' : 'text-gray-500'}>
+                                            {item.day}
+                                        </span>
+                                        <span className={`${item.hours === 'Closed' ? 'text-gray-400' : ''} ${isToday ? 'font-semibold text-gray-900' : 'text-gray-500'}`}>
+                                            {item.hours}
+                                        </span>
+                                    </div>
+                                );
+                            });
+                        })()}
                     </div>
                 </div>
 
