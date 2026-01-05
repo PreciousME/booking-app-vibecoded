@@ -45,7 +45,7 @@ export function ReviewConfirmPage() {
                         alt={merchant.name}
                         className="w-20 h-20 rounded-2xl object-cover"
                     />
-                    <div className="flex-1">
+                    <div className="flex-1 space-y-1">
                         <h3 className="font-semibold text-[17px]">{merchant.name}</h3>
                         <div className="flex items-center gap-1 text-sm">
                             <span>{merchant.rating}</span>
